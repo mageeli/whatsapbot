@@ -15,10 +15,10 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    if(msg == 'هلا'):
-        resp.message("You said: {}".format(msg))
+    if(msg == '1'):
+        resp.message("١- مطار الملك خالد \n ٢- مطار الملك عبدالعزيز")
     else:
-        resp.message("You said: noo")
+        resp.message("شكرا لك على تواصلك مع الروبوت جغرافي. يرجى إخبارنا بما يمكننا القيام به لمساعدتك علما بأني أقدم معلومات عن آراضي التخصصيص في الهيئة العامة للطيران المدني أختر \n١- المطارات الدولية \n٢- المحلية")
 
 
     return str(resp)
