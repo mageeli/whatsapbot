@@ -13,15 +13,15 @@ def sms_reply():
     # Fetch the message
     msg = request.form.get('Body')
     phone_no = request.form.get('From')
-    reply = fetch_reply(msg, phone_no)
+    # reply = fetch_reply(msg, phone_no)
     # Create reply
     resp = MessagingResponse()
-    resp.message(reply)
+    # resp.message(reply)
     if(msg == '1'):
         resp.message("١- مطار الملك خالد \n ٢- مطار الملك عبدالعزيز")
     else:
         resp.message("شكرا لك على تواصلك مع الروبوت جغرافي. يرجى إخبارنا بما يمكننا القيام به لمساعدتك علما بأني أقدم معلومات عن آراضي التخصصيص في الهيئة العامة للطيران المدني أختر \n١- المطارات الدولية \n٢- المحلية")
-
+        resp.message(phone_no)
 
     return str(resp)
 
