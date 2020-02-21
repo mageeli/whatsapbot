@@ -5,16 +5,18 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return "Hello, World! h"
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-
+    phone_no = request.form.get('From')
+    reply = fetch_reply(msg, phone_no)
     # Create reply
     resp = MessagingResponse()
+    resp.message(reply)
     if(msg == '1'):
         resp.message("١- مطار الملك خالد \n ٢- مطار الملك عبدالعزيز")
     else:
